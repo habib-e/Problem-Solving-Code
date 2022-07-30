@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 //memset(ar,-1,sizeof(ar));
-//#define         sort(x)              sort(x.begin(),x.end())
+//#define sort(x) sort(x.begin(), x.end())
+//#define rsort(x) sort(x.rbegin(), x.rend())
 //sort(a,a+n,greater<ll>())
 typedef long long ll;
 typedef long double ld;
@@ -15,11 +16,10 @@ typedef unsigned long long ull;
     cout.tie(0);
 #define all(p) p.begin(), p.end()
 #define zz(v) (ll) v.size()
-#define ss ' '
+#define pp ' '
 #define arrsize(a) (sizeof(a) / sizeof(a[0]))
 #define S(a) scanf("%lld", &a)
 #define SS(a, b) scanf("%lld %lld", &a, &b)
-#define SS(a, b, c) scanf("%lld %lld %lld", &a, &b, &c)
 #define gcd(a, b) __gcd(a, b)
 #define lcm(a, b) (a * b) / gcd(a, b)
 #define pi acos(-1.0)
@@ -32,22 +32,46 @@ typedef map<ll, ll> mll;
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
 #define MAX 1000005
-#define mod 1000000007
-//#include <stdlib.h>
-ll a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
-int main(void)
+int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    //system("CLS");
-    cin >> t;
-    while (t--)
+    cin >> m >> s;
+    string mx = "";
+    string mn = "";
+    if (s == 0)
     {
-        cin >> n;
-        string s;
-        cin >> s;
-        string sa = "1 2 3 4";
-        cout << sa;
+        if (m == 1)
+        {
+            cout << 0 << " " << 0;
+            return 0;
+        }
+        else
+        {
+            cout << -1 << " " << -1;
+            return 0;
+        }
     }
-    return 0;
+    for (i = 0; i < m; i++)
+    {
+        k = min(s, 9);
+        mx.pb('0' + k);
+        s -= k;
+    }
+    if (s > 0)
+    {
+        cout << -1 << " " << -1 << endl;
+        return 0;
+    }
+    for (i = m - 1; i >= 0; i--)
+    {
+        mn.pb(mx[i]);
+    }
+    j = 0;
+    while (mn[j] == '0')
+    {
+        j++;
+    }
+    mn[0]++;
+    mn[j]--;
+    cout << mn << " " << mx << endl;
 }

@@ -33,21 +33,15 @@ typedef map<ll, ll> mll;
 #define no cout << "NO\n"
 #define MAX 1000005
 #define mod 1000000007
-//#include <stdlib.h>
+#define ll long long
 ll a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
-int main(void)
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    //system("CLS");
     cin >> t;
     while (t--)
     {
-        cin >> n;
-        string s;
-        cin >> s;
-        string sa = "1 2 3 4";
-        cout << sa;
+        cin >> x;
+        cout << x - 1 << " " << 1 << endl;
     }
     return 0;
 }

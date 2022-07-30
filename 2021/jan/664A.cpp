@@ -40,14 +40,15 @@ int main(void)
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     //system("CLS");
-    cin >> t;
-    while (t--)
+    string sa, sb;
+    cin >> sa >> sb;
+    if (sa == sb)
     {
-        cin >> n;
-        string s;
-        cin >> s;
-        string sa = "1 2 3 4";
         cout << sa;
+    }
+    else
+    {
+        cout << 1;
     }
     return 0;
 }

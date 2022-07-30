@@ -35,19 +35,39 @@ typedef map<ll, ll> mll;
 #define mod 1000000007
 //#include <stdlib.h>
 ll a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+bool isPrime(ll n)
+{
+    if (n == 2)
+    {
+        return true;
+    }
+    if (n < 2 || n % 2 == 0)
+    {
+        return false;
+    }
+    m = sqrt(n);
+    for (i = 3; i <= m; i += 2)
+    {
+        if (n % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
 int main(void)
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     //system("CLS");
-    cin >> t;
-    while (t--)
+    cin >> n;
+    for (b = 1; b <= 1000; ++b)
     {
-        cin >> n;
-        string s;
-        cin >> s;
-        string sa = "1 2 3 4";
-        cout << sa;
+        if (isPrime(n * b + 1) == false)
+        {
+            cout << b;
+            return 0;
+        }
     }
     return 0;
 }

@@ -43,11 +43,17 @@ int main(void)
     cin >> t;
     while (t--)
     {
-        cin >> n;
-        string s;
-        cin >> s;
-        string sa = "1 2 3 4";
-        cout << sa;
+        cin >> n >> x;
+        ll sum = 0, bum = 0;
+        //vector<ll> ar(n, 0);
+        for (i = 1; i <= n; i++)
+        {
+            cin >> y;
+            bum += y;
+            y = (y - 1) / x;
+            sum += y + 1;
+        }
+        cout << (bum + x - 1) / x << " " << sum << endl;
     }
     return 0;
 }

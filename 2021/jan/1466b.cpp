@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 //memset(ar,-1,sizeof(ar));
-//#define         sort(x)              sort(x.begin(),x.end())
+#define sort(x) sort(x.begin(), x.end())
 //sort(a,a+n,greater<ll>())
 typedef long long ll;
 typedef long double ld;
@@ -15,11 +15,10 @@ typedef unsigned long long ull;
     cout.tie(0);
 #define all(p) p.begin(), p.end()
 #define zz(v) (ll) v.size()
-#define ss ' '
+#define pp ' '
 #define arrsize(a) (sizeof(a) / sizeof(a[0]))
 #define S(a) scanf("%lld", &a)
 #define SS(a, b) scanf("%lld %lld", &a, &b)
-#define SS(a, b, c) scanf("%lld %lld %lld", &a, &b, &c)
 #define gcd(a, b) __gcd(a, b)
 #define lcm(a, b) (a * b) / gcd(a, b)
 #define pi acos(-1.0)
@@ -32,22 +31,24 @@ typedef map<ll, ll> mll;
 #define yes cout << "YES\n"
 #define no cout << "NO\n"
 #define MAX 1000005
-#define mod 1000000007
-//#include <stdlib.h>
-ll a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
-int main(void)
+int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    //system("CLS");
     cin >> t;
     while (t--)
     {
         cin >> n;
-        string s;
-        cin >> s;
-        string sa = "1 2 3 4";
-        cout << sa;
+        set<int> s;
+        for (i = 0; i < n; i++)
+        {
+            cin >> x;
+            if (s.count(x) >= 1)
+            {
+                x++;
+            }
+            s.insert(x);
+        }
+        cout << (int)s.size() << endl;
     }
-    return 0;
 }
