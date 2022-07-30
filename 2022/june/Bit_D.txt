@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long 
+#define nn '\n' 
+bitset<4001> a[101000];
+bitset<4001> b[101000];
+int32_t main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	ll m,n,q;
+	cin>>n>>m>>q;
+	for(int i=1;i<=n;i++){
+		int x;
+		cin>>x;
+		a[i]=a[i-1];
+		a[i][x] =a[i][x]^1;
+	}
+	for(int i=1;i<=m;i++){
+		int x;
+		cin>>x;
+		b[i]=b[i-1];
+		b[i][x] =b[i][x]^1;
+	}
+	bitset<4001>b1,b2;
+	while(q--){
+		ll l1,r1,l2,r2;
+		cin>>l1>>r1>>l2>>r2;
+		b1 = a[r1]^a[l1-1];
+		b2 = b[r2]^b[l2-1];
+		cout<<((b1^b2).count())<<nn;
+	}
+	return 0;
+}
