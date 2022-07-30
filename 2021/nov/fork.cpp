@@ -1,5 +1,10 @@
 /*    ***Bismillahir Rahmanir Rahim***   */
 #include<bits/stdc++.h>
+#include  <stdio.h>
+#include  <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include<sys/wait.h>
 using namespace std;
 
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
@@ -46,17 +51,56 @@ template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
+
+void ChildP(int ar[1000],int n)
+{
+    int   i;
+    for (i = 0; i <n ; i++)
+    {
+        printf("This line is from child, array value = %d\n", ar[i]);
+    }
+    printf("   *** Child process is done ***\n");
+}
+
+void ParentP(int ar[1000],int n)
+{
+    int   i;
+    for (i = 0; i < n; i++)
+    {
+        if(ar[i]%2!=0)
+        {
+            printf("This line is from parent, Odd Value = %d\n",ar[i]);
+        }
+    }
+    printf("*** Parent is done ***\n");
+}
+
+
 int main() {
 #ifndef ONLINE_JUDGE
 	freopen("Error.txt", "w", stderr);
 #endif
 	fastio();
-	ll t;
-	cin>>t;
-	while(t--){
-		cout<<t<<nn;
-		debug(t);
-	}
+	
+	int n;
+    int ar[1000];
+    pid_t  pid;
+    scanf("%d",&n);
+    for(int i=0; i<n; i++)
+    {
+        scanf("%d",&ar[i]);
+    }
+    pid = fork();
+    if (pid == 0)
+    {
+        sort(ar,ar+n);
+        ChildP(ar,n);
+    }
+    else
+    {
+        ParentP(ar,n);
+    }
 
 	return 0;
 }
+

@@ -45,18 +45,46 @@ template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_prin
 template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
 template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
-
+int inp[NX] , lis[NX] , lds[NX] ;
+int n ;
 int main() {
 #ifndef ONLINE_JUDGE
 	freopen("Error.txt", "w", stderr);
 #endif
 	fastio();
-	ll t;
-	cin>>t;
-	while(t--){
-		cout<<t<<nn;
-		debug(t);
-	}
+	const int NX = 505 ;
 
+   // I will always use scanf and printf
+   // May be i won't be a good programmer but i will be a good human being
+    while( ~scanf("%d",&n) && n )
+    {
+        int i , j ;
+        for ( i = 1 ; i <= n ; i++ )
+        {
+            scanf("%d",&inp[i]);
+
+        }
+        for ( i = n ; i >= 1 ; i-- )
+        {
+            lis[i] = lds[i] = 1 ;
+            for ( j = n ; j > i ; j-- )
+            {
+                if( inp[i] <= inp[j] ) lis[i] = max( lis[i] , lis[j] + 1 );
+                if( inp[i] >= inp[j] ) lds[i] = max( lds[i] , lds[j] + 1 );
+            }
+        }
+        int ans = 0 ;
+        for ( i = 1 ; i <= n ; i++ )
+        {
+            ans = max( ans , lis[i] );
+            ans = max( ans , lds[i] );
+            for ( j = i + 1 ; j <= n ; j++ )
+            {
+                if( inp[i] > inp[j] ) ans = max( ans , lis[i] + lds[j] );
+                if( inp[i] < inp[j] ) ans = max( ans , lis[j] + lds[i] );
+            }
+        }
+        printf("%d\n",ans);
+    }
 	return 0;
 }

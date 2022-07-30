@@ -54,8 +54,35 @@ int main() {
 	ll t;
 	cin>>t;
 	while(t--){
-		cout<<t<<nn;
-		debug(t);
+		ll n;
+		cin>>n;
+		ll ar[n];
+		for(ll i=0;i<n;i++)
+			cin>>ar[i];
+		ll p=ar[0],q=ar[1];
+		for(ll i=0;i<n;i+=2)
+			p=__gcd(p,ar[i]);
+		for(ll i=1;i<n;i+=2)
+			q = __gcd(q,ar[i]);
+		bool flg1=true,flg2=true;
+		for(ll i=0;i<n;i+=2){
+			if(ar[i]%q==0){
+				flg2=false;break;
+			}
+			
+		}
+		for(ll i=1;i<n;i+=2){
+			if(ar[i]%p==0){
+				flg1=false;break;
+			}
+			
+		}
+		if(flg1 or flg2)
+			cout<<(flg1?p:q)<<endl;
+		else
+			cout<<0<<endl;
+
+
 	}
 
 	return 0;

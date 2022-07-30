@@ -54,9 +54,36 @@ int main() {
 	ll t;
 	cin>>t;
 	while(t--){
-		cout<<t<<nn;
-		debug(t);
+		int n,x;
+		cin>>n>>x;
+		int ar[1001];
+		int evencnt=0,oddcnt=0;
+		for(int i=0;i<n;i++){
+			cin>>ar[i];
+			if(ar[i]&1)
+				oddcnt++;
+			else
+				evencnt++;
+		}
+		if(evencnt+oddcnt>=x and evencnt!=n)
+			if(x==n and (oddcnt%2==0 or oddcnt==n))
+				cout<<"NO"<<endl;
+			else
+				cout<<"YES"<<endl;
+		else
+			cout<<"NO"<<endl;
 	}
 
 	return 0;
 }
+
+c1
+x<n
+	1. oddcnt
+
+c2
+x==n and n>1
+	1. oddcnt == n or evencnt == n
+		no
+	2. 
+
